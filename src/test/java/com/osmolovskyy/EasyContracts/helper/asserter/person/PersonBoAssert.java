@@ -1,8 +1,8 @@
 package com.osmolovskyy.EasyContracts.helper.asserter.person;
 
-import com.osmolovskyy.EasyContracts.dummy.bo.PersonBo;
-import com.osmolovskyy.EasyContracts.dummy.dto.PersonRequestDto;
-import com.osmolovskyy.EasyContracts.dummy.persistance.entity.PersonEntity;
+import com.osmolovskyy.EasyContracts.person.bo.PersonBo;
+import com.osmolovskyy.EasyContracts.person.dto.PersonRequestDto;
+import com.osmolovskyy.EasyContracts.person.persistance.entity.PersonEntity;
 import com.osmolovskyy.EasyContracts.helper.asserter.EasyContractAssert;
 import org.assertj.core.api.Assertions;
 
