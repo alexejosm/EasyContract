@@ -1,4 +1,4 @@
-package com.osmolovskyy.EasyContracts.person.persistance.entity;
+package com.osmolovskyy.EasyContracts.commons.persistence;
 
 import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
 import jakarta.persistence.Column;

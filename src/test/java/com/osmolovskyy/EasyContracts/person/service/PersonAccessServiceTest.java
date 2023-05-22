@@ -1,7 +1,7 @@
 package com.osmolovskyy.EasyContracts.person.service;
 
-import com.osmolovskyy.EasyContracts.person.persistance.PersonRepository;
-import com.osmolovskyy.EasyContracts.person.persistance.entity.PersonEntity;
+import com.osmolovskyy.EasyContracts.person.persistence.PersonRepository;
+import com.osmolovskyy.EasyContracts.person.persistence.entity.PersonEntity;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;

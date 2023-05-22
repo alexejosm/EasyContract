@@ -2,9 +2,9 @@ package com.osmolovskyy.EasyContracts.person.service;
 
 import com.osmolovskyy.EasyContracts.commons.util.ReadOnlyTransaction;
 import com.osmolovskyy.EasyContracts.person.bo.PersonBo;
-import com.osmolovskyy.EasyContracts.person.persistance.PersonRepository;
-import com.osmolovskyy.EasyContracts.person.persistance.entity.PersonEntity;
-import com.osmolovskyy.EasyContracts.person.persistance.entity.PersonEntityUtil;
+import com.osmolovskyy.EasyContracts.person.persistence.PersonRepository;
+import com.osmolovskyy.EasyContracts.person.persistence.entity.PersonEntity;
+import com.osmolovskyy.EasyContracts.person.persistence.entity.PersonEntityUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

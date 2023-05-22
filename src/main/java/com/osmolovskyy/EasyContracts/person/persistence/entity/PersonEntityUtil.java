@@ -1,4 +1,4 @@
-package com.osmolovskyy.EasyContracts.person.persistance.entity;
+package com.osmolovskyy.EasyContracts.person.persistence.entity;
 
 import com.osmolovskyy.EasyContracts.person.bo.PersonBo;
 import lombok.NoArgsConstructor;

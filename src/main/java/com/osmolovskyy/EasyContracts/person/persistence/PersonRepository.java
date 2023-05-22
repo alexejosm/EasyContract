@@ -1,6 +1,6 @@
-package com.osmolovskyy.EasyContracts.person.persistance;
+package com.osmolovskyy.EasyContracts.person.persistence;
 
-import com.osmolovskyy.EasyContracts.person.persistance.entity.PersonEntity;
+import com.osmolovskyy.EasyContracts.person.persistence.entity.PersonEntity;
 import jakarta.persistence.LockModeType;
 import org.springframework.data.jpa.repository.Lock;
 import org.springframework.data.jpa.repository.Query;

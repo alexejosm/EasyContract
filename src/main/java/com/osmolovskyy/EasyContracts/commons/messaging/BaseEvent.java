@@ -1,4 +1,4 @@
-package com.osmolovskyy.EasyContracts.person.messaging;
+package com.osmolovskyy.EasyContracts.commons.messaging;
 
 import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
 import lombok.Getter;

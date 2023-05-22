@@ -1,5 +1,6 @@
 package com.osmolovskyy.EasyContracts.person.bo;
 
+import com.osmolovskyy.EasyContracts.commons.bo.BaseBo;
 import lombok.Builder;
 import lombok.Data;
 

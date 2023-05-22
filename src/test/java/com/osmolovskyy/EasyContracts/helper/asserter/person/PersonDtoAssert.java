@@ -1,8 +1,8 @@
 package com.osmolovskyy.EasyContracts.helper.asserter.person;
 
+import com.osmolovskyy.EasyContracts.helper.asserter.EasyContractAssert;
 import com.osmolovskyy.EasyContracts.person.bo.PersonBo;
 import com.osmolovskyy.EasyContracts.person.dto.PersonDto;
-import com.osmolovskyy.EasyContracts.helper.asserter.EasyContractAssert;
 
 public class PersonDtoAssert extends EasyContractAssert<PersonDtoAssert, PersonDto> {
 
@@ -21,5 +21,4 @@ public class PersonDtoAssert extends EasyContractAssert<PersonDtoAssert, PersonD
 
         return this;
     }
-
 }

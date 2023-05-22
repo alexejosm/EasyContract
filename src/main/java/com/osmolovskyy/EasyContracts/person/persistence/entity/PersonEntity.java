@@ -1,5 +1,6 @@
-package com.osmolovskyy.EasyContracts.person.persistance.entity;
+package com.osmolovskyy.EasyContracts.person.persistence.entity;
 
+import com.osmolovskyy.EasyContracts.commons.persistence.BaseEntity;
 import lombok.Getter;
 import lombok.Setter;
 
