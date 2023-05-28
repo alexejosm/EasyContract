@@ -1,0 +1,16 @@
+easy_contract:
+  caching:
+    enable: false
+
+  cors:
+    allowed-origins: http://localhost:8080
+    
+spring:
+  datasource:
+    password: mysecretpassword
+
+  flyway:
+    password: mysecretpassword
+
+  main:
+    allow-bean-definition-overriding: true

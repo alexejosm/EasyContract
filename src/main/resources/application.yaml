@@ -1,0 +1,32 @@
+easy_contract:
+  caching:
+    enable: false
+
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: easy_contract_java
+
+  flyway:
+    baseline-on-migrate: true
+    baseline-version: 0
+    create-schemas: false
+    locations: classpath:db
+    schemas: easy_contract_flyway
+    user: easy_contract_flyway
+
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    properties:
+      hibernate:
+        default_schema: easy_contract_java
+server:
+  error:
+    whitelabel:
+      enabled: false
+  max-http-request-header-size: 16000
+  port: 8080

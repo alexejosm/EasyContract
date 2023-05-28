@@ -1,12 +1,11 @@
 package com.osmolovskyy.EasyContracts.person.persistence.entity;
 
 import com.osmolovskyy.EasyContracts.commons.persistence.BaseEntity;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
 
 import static com.osmolovskyy.EasyContracts.commons.persistence.DatabaseConstants.FIELD_FIRST_NAME;
 import static com.osmolovskyy.EasyContracts.commons.persistence.DatabaseConstants.FIELD_LAST_NAME;
@@ -20,12 +19,11 @@ import static com.osmolovskyy.EasyContracts.commons.persistence.DatabaseConstant
 public class PersonEntity extends BaseEntity {
 
     @Column(name = FIELD_PERSON_ID)
-    private long personId;
+    private Long personId;
 
     @Column(name = FIELD_FIRST_NAME)
     private String firstName;
 
     @Column(name = FIELD_LAST_NAME)
     private String lastName;
-
 }

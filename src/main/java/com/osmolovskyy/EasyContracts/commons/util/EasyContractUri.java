@@ -1,10 +1,6 @@
 package com.osmolovskyy.EasyContracts.commons.util;
 
-import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.AccessType;
-
-import javax.persistence.Access;
 
 import static lombok.AccessLevel.PRIVATE;
 

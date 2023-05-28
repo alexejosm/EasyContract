@@ -21,19 +21,17 @@ public class PersonService {
     @ReadOnlyTransaction
     public List<PersonBo> loadAll() {
         log.info("Not implemented yet");
+        return null;
     }
 
     public Optional<PersonBo> loadPerson(final long personId) {
-
+        log.info("Not implemented yet");
+        return null;
     }
 
     public PersonBo loadRequiredPerson(final long personId) {
-
-    }
-
-    @ReadOnlyTransaction
-    public List<PersonBo> loadAll() {
         log.info("Not implemented yet");
+        return null;
     }
 
     @Transactional
@@ -57,6 +55,6 @@ public class PersonService {
 
         // enhance
         // post validate
-        presonAccessService.upsert(person);
+        personAccessService.upsertPerson(person);
     }
 }

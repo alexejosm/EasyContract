@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:14.1-alpine
+    container_name: easy_contract_db
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_DB: "easy_contract"
+      POSTGRES_PASSWORD: "mysecretpassword"
+      PGDATA: "var/lib/postgresql/pgdata"
+    volumes:
+      - ../../resources/db/init-database.sql:/docker-entrypoint-initdb.d/init.sql

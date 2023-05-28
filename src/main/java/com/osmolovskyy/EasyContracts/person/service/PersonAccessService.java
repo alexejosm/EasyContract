@@ -5,11 +5,11 @@ import com.osmolovskyy.EasyContracts.person.bo.PersonBo;
 import com.osmolovskyy.EasyContracts.person.persistence.PersonRepository;
 import com.osmolovskyy.EasyContracts.person.persistence.entity.PersonEntity;
 import com.osmolovskyy.EasyContracts.person.persistence.entity.PersonEntityUtil;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
 import java.util.Optional;
 
 import static com.osmolovskyy.EasyContracts.commons.exception.ExceptionFactory.createPersonNotFoundException;

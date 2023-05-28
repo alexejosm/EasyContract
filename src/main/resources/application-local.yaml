@@ -1,0 +1,12 @@
+easy_contract:
+  cors:
+    allowed-origins: http://localhost:8000
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/easy_contract
+    password: 'mysecretpassword'
+
+  flyway:
+    password: 'mysecretpassword'
+    validate-migration-naming: true

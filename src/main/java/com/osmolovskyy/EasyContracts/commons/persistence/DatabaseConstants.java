@@ -18,10 +18,9 @@ public class DatabaseConstants {
     public static final String FIELD_CREATED = "created";
     public static final String FIELD_MODIFIED = "modified";
 
-    public static final String FIELD_PERSON_ID = "id";
-    public static final String FIELD_FIRST_NAME = "firstName";
-    public static final String FIELD_LAST_NAME = "lastName";
+    public static final String FIELD_PERSON_ID = "person_id";
+    public static final String FIELD_FIRST_NAME = "first_name";
+    public static final String FIELD_LAST_NAME = "last_name";
     public static final String TYPE_JSONB = "jsonb";
-
-
+    public static final String TYPE_JSON = "json";
 }

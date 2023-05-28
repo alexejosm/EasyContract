@@ -1,0 +1,14 @@
+easy_contract:
+  caching:
+    enable: false
+
+  cors:
+    allowed-origins: http://localhost
+
+spring:
+  datasource:
+    password: mysecretpassword
+    url: jdbc:postgresql://db:5432/easy_contract
+
+  flyway:
+    password: mysecretpassword
