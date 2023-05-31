@@ -19,7 +19,7 @@ import static com.osmolovskyy.EasyContracts.commons.persistence.DatabaseConstant
 public class PersonEntity extends BaseEntity {
 
     @Column(name = FIELD_PERSON_ID)
-    private Long personId;
+    private String personId;
 
     @Column(name = FIELD_FIRST_NAME)
     private String firstName;

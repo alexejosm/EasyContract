@@ -8,8 +8,7 @@ import lombok.Data;
 @Builder
 public class PersonBo implements BaseBo {
 
-    private long id;
+    private String id;
     private String firstName;
     private String lastName;
-
 }

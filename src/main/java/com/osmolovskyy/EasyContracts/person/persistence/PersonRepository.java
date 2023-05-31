@@ -13,7 +13,7 @@ public interface PersonRepository extends CrudRepository<PersonEntity, Long> {
 
     @Lock(LockModeType.PESSIMISTIC_WRITE)
     @Query("SELECT p FROM PersonEntity p WHERE p.personId = ?1")
-    Optional<PersonEntity> findByPersonIdForUpdate(Long personId);
+    Optional<PersonEntity> findByPersonIdForUpdate(String personId);
 
-    Optional<PersonEntity> findByPersonId(Long personId);
+    Optional<PersonEntity> findByPersonId(String personId);
 }

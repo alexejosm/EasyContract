@@ -8,7 +8,7 @@ import lombok.Data;
 @Builder
 public class PersonDto implements BaseDto {
 
-    private long id;
+    private String id;
     private String firstName;
     private String lastName;
 }

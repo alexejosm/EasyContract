@@ -13,7 +13,7 @@ import static lombok.AccessLevel.PRIVATE;
 public class ExceptionFactory {
     private static final String ID = "[id: {}]";
 
-    public static PersonNotFoundException createPersonNotFoundException(final Long personId) {
+    public static PersonNotFoundException createPersonNotFoundException(final String personId) {
         log.info(PERSON_NOT_FOUND + ID, personId);
 
         return new PersonNotFoundException();

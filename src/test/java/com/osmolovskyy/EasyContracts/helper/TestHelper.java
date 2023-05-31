@@ -32,7 +32,6 @@ public final class TestHelper {
         config.randomize(BigDecimal.class, new BigDecimalRangeRandomizer(1.0, 100_000_00.0, 0, 2));
 
         EASY_RANDOM = new EasyRandom(config);
-
     }
 
     public static final EasyRandom EASY_RANDOM;
@@ -41,8 +40,14 @@ public final class TestHelper {
         return EASY_RANDOM.nextObject(expectedType);
     }
 
-    public static PersonEntity createPersonEntity(){
-        return  randomize(PersonEntity.class);
+    public static PersonEntity createPersonEntity() {
+        return randomize(PersonEntity.class);
     }
 
+
+    public static PersonEntity createPersonEntity(final String personID) {
+        PersonEntity entity = createPersonEntity();
+        entity.setPersonId(personID);
+        return entity;
+    }
 }

@@ -3,7 +3,7 @@ CREATE TABLE easy_contract_java.person
     id         BIGSERIAL,
     created    TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     modified   TIMESTAMPTZ NOT NULL DEFAULT NOW(),
-    person_id  BIGINT      NOT NULL,
+    person_id  TEXT        NOT NULL,
     first_name TEXT        NOT NULL,
     last_name  TEXT        NOT NULL,
 
