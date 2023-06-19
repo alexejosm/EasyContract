@@ -1,5 +1,6 @@
 package com.osmolovskyy.EasyContracts.helper;
 
+import com.osmolovskyy.EasyContracts.person.bo.PersonBo;
 import com.osmolovskyy.EasyContracts.person.persistence.entity.PersonEntity;
 import lombok.NoArgsConstructor;
 import org.jeasy.random.EasyRandom;
@@ -40,6 +41,7 @@ public final class TestHelper {
         return EASY_RANDOM.nextObject(expectedType);
     }
 
+    //================================================== PERSON
     public static PersonEntity createPersonEntity() {
         return randomize(PersonEntity.class);
     }
@@ -49,5 +51,15 @@ public final class TestHelper {
         PersonEntity entity = createPersonEntity();
         entity.setPersonId(personID);
         return entity;
+    }
+
+    public static PersonBo createPersonBo() {
+        return randomize(PersonBo.class);
+    }
+
+    public static PersonBo createPersonBo(String id) {
+        PersonBo person = randomize(PersonBo.class);
+        person.setId(id);
+        return person;
     }
 }

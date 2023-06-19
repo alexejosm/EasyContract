@@ -31,6 +31,8 @@ public class PersonAccessService {
                 .map(PersonEntityUtil::convertToPersonBo);
     }
 
+
+    //================================================== GET ONE
     @ReadOnlyTransaction
     public Optional<PersonBo> loadByPersonId(final String personId) {
         log.debug("load person " + ID_TEMPLATE, personId);
@@ -46,6 +48,7 @@ public class PersonAccessService {
                 .orElseThrow(() -> createPersonNotFoundException(personId));
     }
 
+    //================================================== UPSERT
     @Transactional
     public void upsertPerson(final PersonBo person) {
         log.debug("insert or update person" + ID_TEMPLATE, person.getId());
@@ -54,24 +57,5 @@ public class PersonAccessService {
         PersonEntityUtil.mapToPersonEntity(person, entity);
 
         repository.save(entity);
-    }
-
-    @ReadOnlyTransaction
-    public Optional<PersonBo> loadPerson(final String personId) {
-        log.debug("load person " + ID_TEMPLATE, personId);
-
-        return repository.findByPersonId(personId)
-                .map(PersonEntityUtil::convertToPersonBo);
-    }
-
-    @ReadOnlyTransaction
-    public PersonBo loadRequiredPerson(final String personId) {
-        log.debug("load person " + ID_TEMPLATE, personId);
-        return repository.findByPersonId(personId).map(PersonEntityUtil::convertToPersonBo).orElseThrow(() -> createPersonNotFoundException(personId));
-    }
-
-    private PersonEntity loadRequiredPersonEntity(final String id) {
-        log.debug("load person " + ID_TEMPLATE, id);
-        return repository.findByPersonId(id).orElseThrow(() -> createPersonNotFoundException(id));
     }
 }

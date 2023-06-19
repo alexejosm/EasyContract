@@ -1,12 +1,12 @@
 package com.osmolovskyy.EasyContracts.helper.asserter.person;
 
-import com.osmolovskyy.EasyContracts.helper.asserter.EasyContractAssert;
+import com.osmolovskyy.EasyContracts.helper.asserter.EntityAssert;
 import com.osmolovskyy.EasyContracts.person.bo.PersonBo;
 import com.osmolovskyy.EasyContracts.person.persistence.entity.PersonEntity;
 
-public class PersonEntityAssert extends EasyContractAssert<PersonEntityAssert, PersonEntity> {
+public class PersonEntityAssert extends EntityAssert<PersonEntity, PersonEntityAssert> {
     PersonEntityAssert(final PersonEntity actual) {
-        super(actual, PersonEntity.class);
+        super(actual, PersonEntityAssert.class);
     }
 
     public static PersonEntityAssert assertThat(final PersonEntity actual) {

@@ -14,8 +14,8 @@ import static org.assertj.core.api.Assertions.within;
 
 public class EasyContractAssert<SELF extends AbstractObjectAssert<SELF, ACTUAL>, ACTUAL> extends AbstractObjectAssert<SELF, ACTUAL> {
 
-    public EasyContractAssert(final ACTUAL actual, final Class<?> setType) {
-        super(actual, setType);
+    public EasyContractAssert(final ACTUAL actual, final Class<?> selfType) {
+        super(actual, selfTypeType);
     }
 
     /**
@@ -84,5 +84,4 @@ public class EasyContractAssert<SELF extends AbstractObjectAssert<SELF, ACTUAL>,
                 .as("actual: %s - expected: %s", actual, expected)
                 .isCloseTo(expected, within(2, SECONDS));
     }
-
 }
