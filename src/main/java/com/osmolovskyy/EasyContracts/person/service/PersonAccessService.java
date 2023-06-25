@@ -31,7 +31,6 @@ public class PersonAccessService {
                 .map(PersonEntityUtil::convertToPersonBo);
     }
 
-
     //================================================== GET ONE
     @ReadOnlyTransaction
     public Optional<PersonBo> loadByPersonId(final String personId) {
@@ -41,7 +40,7 @@ public class PersonAccessService {
     }
 
     @ReadOnlyTransaction
-    public PersonBo loadRequiredPersonByPersonId(final String personId) {
+    public PersonBo loadRequired(final String personId) {
         log.debug("load person required " + ID_TEMPLATE, personId);
         return repository.findByPersonId(personId)
                 .map(PersonEntityUtil::convertToPersonBo)
@@ -50,12 +49,23 @@ public class PersonAccessService {
 
     //================================================== UPSERT
     @Transactional
-    public void upsertPerson(final PersonBo person) {
+    public void upsert(final PersonBo person) {
         log.debug("insert or update person" + ID_TEMPLATE, person.getId());
 
         final PersonEntity entity = repository.findByPersonIdForUpdate(person.getId()).orElseGet(PersonEntity::new);
         PersonEntityUtil.mapToPersonEntity(person, entity);
 
         repository.save(entity);
+    }
+
+    //================================================== DELETE
+    @Transactional
+    public void delete(final String personId) {
+        log.debug("delete person " + ID_TEMPLATE, personId);
+        repository.delete(loadPersonEntity(personId));
+    }
+
+    private PersonEntity loadPersonEntity(final String personId) {
+        return repository.findByPersonId(personId).orElseThrow(() -> createPersonNotFoundException(personId));
     }
 }

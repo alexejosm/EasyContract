@@ -26,6 +26,7 @@ import static com.osmolovskyy.EasyContracts.helper.TestHelper.createPersonBo;
 import static com.osmolovskyy.EasyContracts.helper.TestHelper.createPersonEntity;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -41,7 +42,7 @@ class PersonAccessServiceTest {
     @Captor
     private ArgumentCaptor<PersonEntity> personEntityCaptor;
 
-    //================================================== loadAll
+    //================================================== loadAllPersons
 
     @Test
     void loadAll_successful() {
@@ -58,7 +59,9 @@ class PersonAccessServiceTest {
 
         assertThat(actual).hasSize(3)
                 .extracting(PersonBo::getId)
-                .containsExactly(expected.get(0).getPersonId(), expected.get(1).getPersonId(), expected.get(2).getPersonId());
+                .containsExactly(expected.get(0).getPersonId(),
+                        expected.get(1).getPersonId(),
+                        expected.get(2).getPersonId());
     }
 
     @Test
@@ -70,14 +73,14 @@ class PersonAccessServiceTest {
         assertThat(actual).isEmpty();
     }
 
-    //================================================== upsertPerson
+    //================================================== upsertPerson()
 
     @Test
     void upsertPerson_personDoesNotExists_insertNewPerson() {
         PersonBo expected = createPersonBo(PERSON_ID);
         when(repository.findByPersonIdForUpdate(PERSON_ID)).thenReturn(Optional.empty());
 
-        service.upsertPerson(expected);
+        service.upsert(expected);
 
         verify(repository, times(1)).findByPersonIdForUpdate(PERSON_ID);
         verify(repository, times(1)).save(personEntityCaptor.capture());
@@ -92,7 +95,7 @@ class PersonAccessServiceTest {
 
         when(repository.findByPersonIdForUpdate(PERSON_ID)).thenReturn(Optional.of(entity));
 
-        service.upsertPerson(expected);
+        service.upsert(expected);
 
         verify(repository, times(1)).findByPersonIdForUpdate(PERSON_ID);
         verify(repository, times(1)).save(personEntityCaptor.capture());
@@ -128,7 +131,7 @@ class PersonAccessServiceTest {
         var expected = createPersonEntity(PERSON_ID);
         when(repository.findByPersonId(PERSON_ID)).thenReturn(Optional.of(expected));
 
-        var actual = service.loadRequiredPersonByPersonId(PERSON_ID);
+        var actual = service.loadRequired(PERSON_ID);
 
         PersonBoAssert.assertThat(actual).isNotNull().isEqualTo(expected);
     }
@@ -137,7 +140,16 @@ class PersonAccessServiceTest {
     void loadRequiredPerson_throwsException() {
         when(repository.findByPersonId(PERSON_ID)).thenReturn(Optional.empty());
 
-        assertThatThrownBy(() -> service.loadRequiredPersonByPersonId(PERSON_ID))
+        assertThatThrownBy(() -> service.loadRequired(PERSON_ID))
                 .isInstanceOf(PersonNotFoundException.class);
+    }
+
+    //================================================== delete()
+    @Test
+    void delete_personNotFound() {
+        when(repository.findByPersonId(PERSON_ID)).thenReturn(Optional.empty());
+
+        assertThatThrownBy(() -> service.delete(PERSON_ID)).isInstanceOf(PersonNotFoundException.class);
+        verify(repository, times(0)).delete(any());
     }
 }

@@ -6,7 +6,7 @@ import com.osmolovskyy.EasyContracts.person.persistence.entity.PersonEntity;
 
 public class PersonEntityAssert extends EntityAssert<PersonEntity, PersonEntityAssert> {
     PersonEntityAssert(final PersonEntity actual) {
-        super(actual, PersonEntityAssert.class);
+        super(actual);
     }
 
     public static PersonEntityAssert assertThat(final PersonEntity actual) {

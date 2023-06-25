@@ -7,8 +7,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
-import java.util.stream.Stream;
+import java.util.stream.Collectors;
 
 
 @Service
@@ -19,20 +20,20 @@ public class PersonService {
     private final PersonAccessService personAccessService;
 
     @ReadOnlyTransaction
-    public Stream<PersonBo> loadAll() {
-        return personAccessService.loadAllPersons();
+    public List<PersonBo> loadAll() {
+        return personAccessService.loadAllPersons().collect(Collectors.toList());
     }
 
-    public Optional<PersonBo> loadPersonByPersonId(final String personId) {
+    public Optional<PersonBo> load(final String personId) {
         return personAccessService.loadByPersonId(personId);
     }
 
-    public PersonBo loadRequiredPerson(final String personId) {
-        return personAccessService.loadRequiredPersonByPersonId(personId);
+    public PersonBo loadRequired(final String personId) {
+        return personAccessService.loadRequired(personId);
     }
 
     public void verifyPersonExist(final String personId) {
-        loadPersonByPersonId(personId);
+        loadRequired(personId);
     }
 
     @Transactional
@@ -56,6 +57,6 @@ public class PersonService {
 
         // enhance
         // post validate
-        personAccessService.upsertPerson(person);
+        personAccessService.upsert(person);
     }
 }

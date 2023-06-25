@@ -32,6 +32,7 @@ public class PersonController {
     @GetMapping(API_V1_PERSON)
     public List<PersonDto> loadAllPersons() {
         return service.loadAll()
+                .stream()
                 .map(PersonDtoConverter::toPersonDto)
                 .collect(Collectors.toList());
     }
@@ -40,7 +41,7 @@ public class PersonController {
 
     @GetMapping(API_V1_PERSON_WITH_ID)
     public PersonDto getPersonByPersonId(@Valid @PathVariable String personId) {
-        var person = service.loadRequiredPerson(personId);
+        var person = service.loadRequired(personId);
         return PersonDtoConverter.toPersonDto(person);
     }
 

@@ -15,7 +15,7 @@ import static org.assertj.core.api.Assertions.within;
 public class EasyContractAssert<SELF extends AbstractObjectAssert<SELF, ACTUAL>, ACTUAL> extends AbstractObjectAssert<SELF, ACTUAL> {
 
     public EasyContractAssert(final ACTUAL actual, final Class<?> selfType) {
-        super(actual, selfTypeType);
+        super(actual, selfType);
     }
 
     /**
